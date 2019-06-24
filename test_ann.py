@@ -7,6 +7,8 @@
 
 import sys
 
+from tkinter import filedialog as fd
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -19,7 +21,6 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
-from tkinter import filedialog as fd
 import test_ann_support
 
 def vp_start_gui():
@@ -45,20 +46,24 @@ def destroy_Toplevel1():
     w.destroy()
     w = None
 
-class Toplevel1:
-    def getpath():
-        file = fd.askopenfile()
-        if file: 
-            print(file.name)
 
+def getpath():
+    file= fd.askopenfile()
+    if file:
+        print(file.name)
+    
+    
+    
+    
+class Toplevel1:
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
         _compcolor = '#d9d9d9' # X11 color: 'gray85'
-        _ana1color = '#d9d9d9' # X11 color: 'gray85'
-        _ana2color = '#ececec' # Closest X11 color: 'gray92'
+        _ana1color = '#d9d9d9' # X11 color: 'gray85' 
+        _ana2color = '#ececec' # Closest X11 color: 'gray92' 
         font10 = "-family {Courier New} -size 10 -weight normal -slant"  \
             " roman -underline 0 -overstrike 0"
         font9 = "-family {Segoe UI} -size 9 -weight normal -slant "  \
@@ -140,7 +145,7 @@ class Toplevel1:
         self.Button1.configure(foreground="#000000")
         self.Button1.configure(highlightbackground="#d9d9d9")
         self.Button1.configure(highlightcolor="black")
-        self.Button1.configure(pady="0",command=self.getpath)
+        self.Button1.configure(pady="0")
         self.Button1.configure(text='''ANNOTATE''')
         self.Button1.configure(width=189)
 
