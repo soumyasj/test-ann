@@ -56,6 +56,11 @@ def getpath():
     
     
 class Toplevel1:
+    def getpath(self):
+        file = fd.askopenfile()
+        if file: 
+            print(file.name)
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -314,7 +319,7 @@ class Toplevel1:
         self.Button8.configure(foreground="#000000")
         self.Button8.configure(highlightbackground="#d9d9d9")
         self.Button8.configure(highlightcolor="black")
-        self.Button8.configure(pady="0")
+        self.Button8.configure(pady="0",command=self.getpath)
         self.Button8.configure(text='''. . .''')
         self.Button8.configure(width=36)
 
